@@ -13,6 +13,10 @@ import Logo from 'components/Logo';
 
 const { spacer } = utils;
 
+const axios = require('axios');
+ 
+// Make a request for a user with a given ID
+
 const HomeContainer = styled(Container)`
   align-items: center;
   display: flex;
@@ -63,7 +67,20 @@ export class Home extends React.PureComponent {
 
     dispatch(login());
   };
-
+  componentDidMount() {
+      axios.get('/repos/aaa')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  }
   render() {
     const { user } = this.props;
 

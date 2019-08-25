@@ -88,7 +88,7 @@ choosePort(HOST, DEFAULT_PORT)
       }
 
       if (isInteractive) {
-        clearConsole();
+        // clearConsole();
       }
 
       console.log(chalk.cyan('Starting the development server...'));
