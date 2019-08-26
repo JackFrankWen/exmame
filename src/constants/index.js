@@ -27,6 +27,10 @@ export const ActionTypes = keyMirror({
   EQUIPMENT_CREATE: undefined,
   EQUIPMENT_CREATE_SUCCESS: undefined,
   EQUIPMENT_CREATE_FAILURE: undefined,
+
+  EQUIPMENT_DETAIL: undefined,
+  EQUIPMENT_DETAIL_SUCCESS: undefined,
+  EQUIPMENT_DETAIL_FAILURE: undefined,
 });
 
 /**

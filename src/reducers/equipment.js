@@ -6,6 +6,8 @@ import { ActionTypes } from 'constants/index';
 export const equipmentState = {
   equipment: {
     data: {},
+    detail: {},
+    list: [],
   },
 };
 
@@ -13,7 +15,7 @@ export default {
   equipment: handleActions(
     {
       [ActionTypes.EQUIPMENT_CREATE_FAILURE]: (state, { payload }) => {
-        console.log('has shut down')
+        console.log('EQUIPMENT_CREATE_FAILURE')
         return immutable(state, {
           equipment: {
             message: { $set: 'error' },
@@ -21,11 +23,16 @@ export default {
         });
       },
       [ActionTypes.EQUIPMENT_CREATE_SUCCESS]: (state, { payload }) => {
-        console.log('suceess')
+        console.log('EQUIPMENT_CREATE_SUCCESS')
+
+        return immutable(state);
+      },
+      [ActionTypes.EQUIPMENT_DETAIL_SUCCESS]: (state, { payload }) => {
+        console.log('payload')
 
         return immutable(state, {
           equipment: {
-            data: { $set: payload },
+            detail: { $set: payload },
           },
         });
       },

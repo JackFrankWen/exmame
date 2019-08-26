@@ -17,6 +17,19 @@ const proxy = {
       msg: 'sucssses'
     });
   },
+  'GET /repos/equipments/:id': (req, res) => {
+    return res.json({
+      code: 200,
+      msg: 'sucssses',
+      data: {
+        "id": "asset:001",
+        "model": "LAMBDA 650 UV/Vis Spectrophotometer",
+        "brand": "LAMBDA",
+        "weight": "76.0 kg",
+        "manufactureDate": "2010-05-12"
+      },
+    });
+  },
 
 
 
