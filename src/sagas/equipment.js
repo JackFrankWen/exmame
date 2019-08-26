@@ -1,31 +1,24 @@
-/**
- * @module Sagas/GitHub
- * @desc GitHub
- */
 
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { request } from 'modules/client';
+import {createEquipment} from 'service/equipment';
 
 import { ActionTypes } from 'constants/index';
 
-/**
- * Get Repos
- *
- * @param {Object} action
- *
- */
-export function* postData({ payload }) {
+// async function addRule(params) {
+//   return api.post('http://localhost:3000/repos/equipments');
+// }
+
+export function* postData({payload }) {
   try {
     const response = yield call(
-      request,
-      `https://localhost:3000/api/create`,
+      createEquipment,payload,
     );
 
     yield put({
       type: ActionTypes.EQUIPMENT_CREATE_SUCCESS,
-      payload: { data: response.items },
     });
   } catch (err) {
+    console.log(err, 'errerrerr')
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.EQUIPMENT_CREATE_FAILURE,
@@ -33,6 +26,7 @@ export function* postData({ payload }) {
     });
   }
 }
+
 
 /**
  * GitHub Sagas

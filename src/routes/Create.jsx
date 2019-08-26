@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container'
 import { connect } from 'react-redux';
 import { ActionTypes } from 'constants/index';
 
-// import { submitData } from 'actions/index';
 
 class Create extends Component {
   constructor() {
@@ -17,6 +16,7 @@ class Create extends Component {
     event.preventDefault();
     const { formModal, formBrand, formWeight, formDate } = event.target.elements;
     const { dispatch } = this.props;
+    
     const postData = {
         modal: formModal.value,
         brand: formBrand.value,
@@ -27,6 +27,7 @@ class Create extends Component {
         type: ActionTypes.EQUIPMENT_CREATE,
         payload: postData
     })
+    // dispatch(postDataD({postDatainfo}))
 }
 
 render() {
@@ -65,4 +66,7 @@ render() {
 function mapStateToProps(state) {
     return state;
   }
-export default connect(mapStateToProps)(Create);
+export default connect((state)=>{
+    console.log(state)
+    return state
+})(Create);
