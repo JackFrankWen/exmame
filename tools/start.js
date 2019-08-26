@@ -88,11 +88,11 @@ choosePort(HOST, DEFAULT_PORT)
       }
 
       if (isInteractive) {
-        // clearConsole();
+        clearConsole();
       }
 
       console.log(chalk.cyan('Starting the development server...'));
-      openBrowser(urls.localUrlForBrowser);
+      openBrowser(urls.localUrlForBrowser + 'equipment/list');
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
