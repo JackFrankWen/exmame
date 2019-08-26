@@ -15,7 +15,7 @@ import config from 'config';
 import { showAlert } from 'actions/index';
 
 import Home from 'routes/Home';
-import Equipment from 'routes/Equipment';
+import Equipment from 'routes/Create';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
@@ -66,7 +66,6 @@ export class App extends React.Component {
 
   render() {
     const { dispatch, user } = this.props;
-    console.log(Equipment.List, 'Equipment.List')
     return (
       <Router history={history}>
         <ThemeProvider theme={theme}>
@@ -88,12 +87,12 @@ export class App extends React.Component {
                   exact
                   component={Home}
                 />
-                {/* <RoutePublic
+                <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/equipment/list"
-                  exact
-                  component={Equipment.List}
-                /> */}
+                  component={Equipment}
+                />
+                {/* <Route path="/create" component={Equipment} /> */}
                 <RoutePrivate
                   isAuthenticated={user.isAuthenticated}
                   path="/private"
