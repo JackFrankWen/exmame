@@ -11,14 +11,33 @@ const proxy = {
     },
     changeHost: true,
   },
-  'GET /repos/aaa': (req, res) => {
-    console.log('-1--->', req.params)
+  'POST /repos/equipments': (req, res) => {
     return res.json({
-      id: req.params.id,
-      username: 'kenny',
-      sex: 6
+      code: 200,
+      msg: 'sucssses'
     });
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   'GET /api/:owner/:repo/raw/:ref/(.*)': (req, res) => {
     const { owner, repo, ref } = req.params;
     // http://localhost:8081/api/admin/webpack-mock-api/raw/master/add/ddd.md

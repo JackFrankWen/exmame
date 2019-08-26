@@ -109,7 +109,7 @@ export class GitHub extends React.Component {
   componentDidMount() {
     const { query } = this.state;
     const { dispatch } = this.props;
-
+    console.log(getRepos(query), 'sss')
     dispatch(getRepos(query));
   }
 

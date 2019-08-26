@@ -23,6 +23,10 @@ export const ActionTypes = keyMirror({
   GITHUB_GET_REPOS_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
+
+  EQUIPMENT_CREATE: undefined,
+  EQUIPMENT_CREATE_SUCCESS: undefined,
+  EQUIPMENT_CREATE_FAILURE: undefined,
 });
 
 /**
