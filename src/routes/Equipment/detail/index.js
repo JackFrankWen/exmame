@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Card, Button, Jumbotron } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 class Detail extends Component {
   render() {
     return (
       <Jumbotron>
-
         <Card>
           <Card.Header as="h5">Featured</Card.Header>
           <Card.Body>
