@@ -88,27 +88,24 @@ export class App extends React.Component {
                   exact
                   component={Home}
                 />
-                <RoutePublic
-                  isAuthenticated={user.isAuthenticated}
+                <Route
                   path="/equipment/list"
                   component={Equipment.List}
                 />
-                <RoutePublic
-                  isAuthenticated={user.isAuthenticated}
+                <Route
                   path="/equipment/create"
+                  exact
                   component={Equipment.Create}
                 />
-                <RoutePublic
-                  isAuthenticated={user.isAuthenticated}
+                <Route
                   path="/equipment/detail/:id"
                   component={Equipment.Detail}
                 />
-                <RoutePublic
-                  isAuthenticated={user.isAuthenticated}
+                <Route
+                  exact
                   path="/equipment/edit/:id"
                   component={Equipment.Create}
                 />
-                {/* <Route path="/create" component={Equipment} /> */}
                 <RoutePrivate
                   isAuthenticated={user.isAuthenticated}
                   path="/private"

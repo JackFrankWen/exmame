@@ -8,6 +8,8 @@ export const equipmentState = {
     data: {},
     detail: {},
     list: [],
+    message: '',
+    status: undefined,
   },
 };
 
@@ -18,17 +20,21 @@ export default {
         console.log('EQUIPMENT_CREATE_FAILURE')
         return immutable(state, {
           equipment: {
-            message: { $set: 'error' },
+            message: { $set: 'something went wrong' },
+            status: { $set: 500 },
           },
         });
       },
       [ActionTypes.EQUIPMENT_CREATE_SUCCESS]: (state, { payload }) => {
-        console.log('EQUIPMENT_CREATE_SUCCESS')
 
-        return immutable(state);
+        return immutable(state, {
+          equipment: {
+            message: { $set: 'success' },
+            status: { $set: 200 },
+          },
+        });
       },
       [ActionTypes.EQUIPMENT_DETAIL_SUCCESS]: (state, { payload }) => {
-        console.log('payload')
 
         return immutable(state, {
           equipment: {
@@ -37,7 +43,6 @@ export default {
         });
       },
       [ActionTypes.EQUIPMENT_LIST_SUCCESS]: (state, { payload }) => {
-        console.log('payload')
 
         return immutable(state, {
           equipment: {

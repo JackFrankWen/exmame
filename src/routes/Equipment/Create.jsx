@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Alert from 'react-bootstrap/Alert';
+import { Prompt } from 'react-router'
 
 import { connect } from 'react-redux';
 import { ActionTypes } from 'constants/index';
@@ -34,13 +36,18 @@ class Create extends Component {
         dispatch({
             type: ActionTypes.EQUIPMENT_CREATE,
             payload: postData
-        })
+        });
     }
 
+
     render() {
-        const { equipment: { detail }} = this.props;
+        const { equipment: { detail, message, st }} = this.props;
         return (
             <Container>
+                  <Prompt
+                    when={true}
+                        message={location => `Are you sure you want to go to ${location.pathname}`}
+                    />
                 <Jumbotron>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group controlId="formModal">
@@ -77,11 +84,22 @@ class Create extends Component {
                                 placeholder="Enter Date" 
                             />
                         </Form.Group>
+                        <a href="/equipment/list" style={{marginRight: '8px'}}>
+                            <Button  variant="outline-primary">
+                                Back
+                            </Button>
+                        </a>
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>
                 </Jumbotron>
+                {
+                    message &&
+                    <Alert  variant={status !== 200 ? 'primary' : 'danger'}>
+                        {message}
+                    </Alert>
+                }
             </Container>
         );
     }

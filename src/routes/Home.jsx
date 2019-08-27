@@ -11,10 +11,11 @@ import Background from 'components/Background';
 import Icon from 'components/Icon';
 import Logo from 'components/Logo';
 
+
 const { spacer } = utils;
 
 const axios = require('axios');
- 
+
 // Make a request for a user with a given ID
 
 const HomeContainer = styled(Container)`

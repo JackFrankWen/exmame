@@ -1,8 +1,4 @@
-/*
- * 通用请求方法
- * @Author: ray.pan 
- * @since: 2017-10-26 17:47:51 
- */
+
 
 import axios from 'axios';
 
@@ -24,6 +20,7 @@ instance.interceptors.response.use(function (response) {
     } else {
         console.log(response, 'response fail')
         // 业务错误
+        console.log('reject from http 业务错误')
         return Promise.reject(response.data);
     }
     
@@ -40,6 +37,7 @@ instance.interceptors.response.use(function (response) {
             msg: response.statusText || '网络异常，请求超时。请稍后再试'
         };
     }
+    console.log('reject from http')
     return Promise.reject(result);
 });
 

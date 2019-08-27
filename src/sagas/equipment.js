@@ -8,14 +8,19 @@ import { ActionTypes } from 'constants/index';
 //   return api.post('http://localhost:3000/repos/equipments');
 // }
 
-export function* postData({ payload }) {
+export function* postData({ payload }, callback) {
   try {
     yield call(createEquipment, payload);
 
     yield put({
       type: ActionTypes.EQUIPMENT_CREATE_SUCCESS,
     });
+    if (callback) {
+      callback();
+    }
+
   } catch (err) {
+    console.log('postData  eerr')
     yield put({
       type: ActionTypes.EQUIPMENT_CREATE_FAILURE,
       payload: err,
