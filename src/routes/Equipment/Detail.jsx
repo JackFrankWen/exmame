@@ -30,6 +30,7 @@ class Detail extends Component {
               </ListGroup>
               <Card.Body>
                 <Card.Link href={`/equipment/edit/${params.id}`}>Edit</Card.Link>
+                <Card.Link href={`/equipment/list`}>Go To List</Card.Link>
               </Card.Body>
             </Card>
           </Jumbotron>

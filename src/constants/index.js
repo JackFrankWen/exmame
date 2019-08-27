@@ -33,6 +33,7 @@ export const ActionTypes = keyMirror({
 
   ...actionGenerator('EQUIPMENT_DETAIL'),
   ...actionGenerator('EQUIPMENT_CREATE'),
+  ...actionGenerator('EQUIPMENT_LIST'),
 });
 /**
  * @constant {Object} STATUS

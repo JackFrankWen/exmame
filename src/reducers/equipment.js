@@ -36,6 +36,15 @@ export default {
           },
         });
       },
+      [ActionTypes.EQUIPMENT_LIST_SUCCESS]: (state, { payload }) => {
+        console.log('payload')
+
+        return immutable(state, {
+          equipment: {
+            list: { $set: payload },
+          },
+        });
+      },
  
     },
     equipmentState,

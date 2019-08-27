@@ -15,8 +15,8 @@ import config from 'config';
 import { showAlert } from 'actions/index';
 
 import Home from 'routes/Home';
-import Equipment from 'routes/Create';
-import EquipmentDetail from 'routes/Detail';
+import Equipment from 'routes/Equipment';
+// import EquipmentDetail from 'routes/Detail';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
@@ -91,22 +91,22 @@ export class App extends React.Component {
                 <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/equipment/list"
-                  component={Equipment}
+                  component={Equipment.List}
                 />
                 <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/equipment/create"
-                  component={Equipment}
+                  component={Equipment.Create}
                 />
                 <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/equipment/detail/:id"
-                  component={EquipmentDetail}
+                  component={Equipment.Detail}
                 />
                 <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/equipment/edit/:id"
-                  component={Equipment}
+                  component={Equipment.Create}
                 />
                 {/* <Route path="/create" component={Equipment} /> */}
                 <RoutePrivate

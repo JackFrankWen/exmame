@@ -1,10 +1,9 @@
-import List from './list';
-import CreateAndEdit from './create';
-// import Detail from './detail';
+import List from './List';
+import Create from './Create';
+import Detail from './Detail';
 
-console.log('fff')
 export default {
-  // List,
-  // Detail,
-  CreateAndEdit
+  List,
+  Detail,
+  Create,
 };

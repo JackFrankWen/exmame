@@ -1,5 +1,5 @@
 import React from 'react';
-// import Table from 'react-bootstrap/Table';
+import Table from 'react-bootstrap/Table';
 
 class CusTable extends React.Component {
   renderHead = () => {
@@ -13,7 +13,7 @@ class CusTable extends React.Component {
   }
 
   renderCell = (object, item) => {
-    return item.render ? item.render(item) : object[item.dataIndex];
+    return item.render ? item.render(object) : object[item.dataIndex];
   }
 
   renderTd = (object) => {

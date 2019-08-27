@@ -6,3 +6,8 @@ export function getDetail(payload) {
         payload: payload,
     }
 }
+export function getList() {
+    return {
+        type: ActionTypes.EQUIPMENT_List,
+    }
+}
