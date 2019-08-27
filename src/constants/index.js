@@ -1,4 +1,11 @@
 import keyMirror from 'fbjs/lib/keyMirror';
+function actionGenerator(key) {
+  return {
+    [`${key}_SUCCESS`]: undefined,
+    [`${key}_FAILURE`]: undefined,
+    [`${key}`]: undefined,
+  };
+}
 
 /**
  * @namespace Constants
@@ -24,15 +31,9 @@ export const ActionTypes = keyMirror({
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
 
-  EQUIPMENT_CREATE: undefined,
-  EQUIPMENT_CREATE_SUCCESS: undefined,
-  EQUIPMENT_CREATE_FAILURE: undefined,
-
-  EQUIPMENT_DETAIL: undefined,
-  EQUIPMENT_DETAIL_SUCCESS: undefined,
-  EQUIPMENT_DETAIL_FAILURE: undefined,
+  ...actionGenerator('EQUIPMENT_DETAIL'),
+  ...actionGenerator('EQUIPMENT_CREATE'),
 });
-
 /**
  * @constant {Object} STATUS
  * @memberof Constants
