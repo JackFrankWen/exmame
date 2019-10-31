@@ -1,36 +1,61 @@
-module.exports = {
-  collectCoverage: false,
-  collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/vendor/*'],
-  coverageThreshold: {
-    global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
-    },
-  },
-  moduleDirectories: ['node_modules', 'src', './'],
-  moduleFileExtensions: ['js', 'jsx', 'json'],
-  moduleNameMapper: {
-    '^app-store': '<rootDir>/src/store',
-    '\\.(css|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
-    '\\.(jpe?g|png|gif|ttf|eot|woff|md)$': '<rootDir>/test/__mocks__/fileMock.js',
-    '\\.svg$': '<rootDir>/test/__mocks__/svgMock.js',
-    '^(expose|bundle)': '<rootDir>/test/__mocks__/moduleMock.js',
-  },
-  setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
-  setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
-  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
-  testEnvironment: 'jest-environment-jsdom-global',
-  testEnvironmentOptions: {
-    resources: 'usable',
-  },
-  testRegex: '/test/.*?\\.(test|spec)\\.js$',
-  testURL: 'http://localhost:3000',
-  transform: {
-    '.*': 'babel-jest',
-  },
+import React from 'react';
+import logo from './logo.svg';
+import Table from 'antd/es/table';
+import Input from 'antd/es/input';
+import Form from 'antd/es/form';
+import './App.css';
 
-  verbose: false,
-  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
-};
+const data = [];
+for (let i = 0; i < 20; i++) {
+  data.push({
+  });
+}
+class WrapInput extends React.Component {
+  shouldComponentUpdate (nextPros) {
+    if(nextPros.value !== this.props.value){
+        return true;
+    }
+    return false;
+  }
+  render() {
+    return <Input {...this.props}/>;
+  }
+}
+class AAA extends React.Component {
+  constructor(props) {
+    super(props);
+    this.columns = [];
+    const {form} = this.props;
+    const {getFieldDecorator} = form;
+    for (let i = 0; i < 20; i++) {
+      this.columns.push( {
+        title: `name${i}`,
+        dataIndex: `name${i}`,
+        width: 160,
+        render:(a,d,index) => {
+          return getFieldDecorator(`name${i}${index}`)(<Input />)
+        }, 
+      //   render:(a,d,index)=>{
+      //    return <Input />
+      //  } 
+      });
+    }
+
+  }
+
+
+  render() {
+    return (
+      <Table
+          bordered
+          dataSource={data}
+          columns={this.columns}
+          pagination={false}
+          scroll={{x: 10000}}
+        />
+    );
+  }
+}
+const WrappedDynamicRule = Form.create()(AAA);
+
+export default WrappedDynamicRule;
